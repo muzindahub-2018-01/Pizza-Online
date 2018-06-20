@@ -1,0 +1,63 @@
+
+<html>
+<head>
+    <title>Food Ordering App | Login</title>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="css/styles.css"    /> -->
+    <link rel="stylesheet" href="{{=URL('static','css/main.css')}}"   />
+</head>
+    <body>
+        <header class="main-header">
+            <h1 class="name"><a href="{{=URL('products','view')}}">Food Ordering App</a></h1>
+            <ul class="main-nav">
+                <li><a href="order.html">Order</a></li>
+                <!-- <li><a href="#">About</a></li> -->
+                <!-- <li><a href="#">Contact Us</a></li> -->
+                {{if 'auth' in globals():}}
+                <li><a class="nav-link dropdown-toggle" href="#">
+                  {{if auth.user:}}{{=auth.user.first_name}}{{else:}}LOGIN{{pass}}
+                </a></li>
+                  {{if auth.user:}}
+                  <li><a class="dropdown-item" href="{{=URL('default','user/profile')}}">{{=T('Profile')}}</a></li>
+                  <li><a class="dropdown-item" href="{{=URL('default','user/logout')}}">{{=T('Logout')}}</a></li>
+                  {{else:}}
+                  {{=redirect(URL('home'))}}
+                  {{pass}}
+                
+                  
+               {{pass}}
+            </ul>
+        </header> <!--/ .main-header -->
+            <h1>My Cart</h1>
+<p>
+    ITEM WAS ADDED TO CART!
+</p>
+{{ for x in rows: }}
+<table >
+    {{if rows==None:}}Cart is Empty!{{else:}}
+    <tr>
+      <th>Quantity</th>
+      <th>Description</th>
+      <th>Delete from cart</th>
+    </tr>
+    <tr>
+        <td>{{=x.quantity}}</td>
+        <td>{{=myDict[x.productId]}}</td>
+        <td><a href='delete/{{=x.productId}}'>Delete</a></td>
+    </tr>
+    {{pass}}
+</table>
+{{pass}}
+</br>
+<hr/>
+<a href='view' style=>CONTINUE SHOPPING</a> | <a href='send_order'>Check Out</a>
+
+
+        
+           <footer class="main-footer">
+                <span>&copy; 2018 Food Ordering Application.</span>
+           </footer>
+
+
+    </body>
+</html>

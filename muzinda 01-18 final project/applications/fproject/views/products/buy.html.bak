@@ -1,0 +1,17 @@
+{{extend 'layout.html'}}
+<h1>My Cart</h1>
+<p>
+    ITEM WAS ADDED TO CART!
+</p>
+<table>
+    {{ for x in rows: }}
+    <tr>
+        <td>{{=x.quantity}}</td>
+        <td>{{=myDict[x.productId]}}</td>
+        <td><a href='delete'>Delete</a></td>
+    </tr>
+    {{pass}}
+</table>
+</br>
+<a href='view'>CONTINUE SHOPPING</a>
+<button><a href='pay'>Check Out</a></button>

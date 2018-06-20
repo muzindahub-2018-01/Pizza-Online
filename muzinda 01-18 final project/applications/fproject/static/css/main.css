@@ -1,0 +1,214 @@
+/* =========================
+     Base element styles
+============================ */
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    color: #3a3a3a;
+    margin: 0;
+}
+form {
+    max-width: 300px;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+
+}
+
+form h1 {
+    margin: 0 0 30px 0;
+    text-align: center;
+}
+
+button {
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    background-color: #4bc970;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid #3ac162;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255,255,255, 0.1) inset;
+    margin-bottom: 10px;
+
+}
+
+button:hover {
+    cursor: ;
+}
+
+ul {
+    margin:0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================
+     Base Layout Styles
+============================ */
+
+/*---- Navigation ----*/
+.name {
+    font-size: 1.35em;
+    margin: 0;
+}
+.name a {
+    color: #093a58;
+}
+.main-nav {
+    margin-top: 5px;
+}
+.name a,
+.main-nav a {
+    text-align: center;
+    display: block;
+    padding: 10px 15px;
+    color: white;
+}
+.main-nav a{
+    font-size: .95em;
+    /*color: #3acec2;*/
+    color: white;
+    text-transform: uppercase;
+}
+.main-nav a:hover {
+    color: red;
+}
+
+/*---- Layout Containers ----*/
+
+.main-header {
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+.banner,
+.main-footer{
+    text-align: center;
+}
+
+.banner {
+    color: orange;
+    background: #444;
+    /*background-image: url('http://lorempixel.com/1038/564/food/');*/
+    background-image: url('../images/pizza-banner.jpg');
+    background-position: center;
+    padding: 3.2em 0;
+    margin-bottom: 48px;
+    height: 50%;
+}
+.wrap input[type=submit],
+.wrap input[type=button],
+.wrap button {
+    line-height: 30px;
+    margin-right: 2px;
+    display: inline-block;
+    padding: 6px 12px;
+}
+.col {
+    padding-right: 1em;
+    padding-left: 1em;
+}
+.main-footer {
+    background: #d9e4ea;
+    padding: 2em 0;
+    margin-top: 30px;
+}
+
+.item-list {
+    border: 1px solid red;
+}
+
+.menu,
+.item-list,
+.item-details {
+    display: flex;
+}
+
+.menu {
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+.item-list * {
+    border-right: 1px solid black;
+}
+
+.item-image img {
+    width: 131px;
+    height:125px;
+
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color:#f5f5f5;}
+
+
+/* =========================
+     Media Queries
+============================ */
+
+@media (min-width: 769px) {
+
+        .wrap {
+            /*Make the footer stick to the bottom of page*/
+            min-height: calc(100vh - 98px );
+        }
+        .main-header,
+        .main-nav,
+        .row {
+            display: flex;
+        }
+
+        .main-header {
+            flex-direction: column;
+            align-items: center;
+        }
+        .row {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .col {
+            flex: 1;
+        }
+}
+
+@media   (min-width: 1025px) {
+    .main-header {
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #343434;
+    }
+    .row {
+        width: 80%;
+        max-width: 1150px;
+    }
+    .primary {
+        flex: 2;
+    }
+}
